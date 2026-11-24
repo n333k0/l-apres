@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>L'Après — Logo Round 2</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400..700&display=swap" rel="stylesheet">
+<style>
+:root{--page:#0E0C0C;--text:#EDE6DA;--muted:#8C847A;--line:#2A2524;--card:#161212;--paper:#F4EFE7;--ink:#121010;--night:#0E0C0C;--gold:#E9D9B8;--gut:clamp(16px,3.2vw,56px)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--page);color:var(--text);font:400 15px/1.55 'DM Sans',system-ui,sans-serif;overflow-x:hidden}
+@media (min-width:1700px){body{font-size:17px}}
+a{color:var(--gold)}
+.mono{font:500 11px/1.4 'DM Mono',monospace;letter-spacing:.08em;text-transform:uppercase}
+.strip{display:flex;justify-content:space-between;gap:16px;padding:14px var(--gut);border-bottom:1px solid var(--line);color:var(--muted)}
+.strip span:nth-child(2){flex:1;text-align:center}
+@media (max-width:700px){.strip span:nth-child(2){display:none}}
+.wrap{padding:0 var(--gut)}
+.hero{padding:clamp(48px,9vw,140px) 0 clamp(32px,5vw,64px);display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:32px;align-items:end}
+.hero h1{font:400 clamp(44px,8.6vw,148px)/.92 'Bodoni Moda',serif;letter-spacing:-.02em}
+.hero h1 em{font-style:italic}
+.hero .lede{color:#BDB4A8;font-size:1.06em;max-width:46ch}
+.hero .lede b{color:var(--text);font-weight:500}
+@media (max-width:860px){.hero{grid-template-columns:minmax(0,1fr)}}
+section{padding:clamp(36px,5vw,72px) 0;border-top:1px solid var(--line)}
+.sh{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:24px;margin-bottom:28px}
+.sh h2{font:400 clamp(26px,3vw,44px)/1.05 'Bodoni Moda',serif}
+.sh h2 small{display:block;margin-bottom:10px;color:var(--muted)}
+.sh p{color:#BDB4A8;max-width:64ch}
+.sh p+p{margin-top:12px}
+@media (max-width:760px){.sh{grid-template-columns:minmax(0,1fr)}}
+
+/* what it is */
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+.facts div{background:var(--card);padding:18px}
+.facts b{display:block;font:400 26px/1.1 'Bodoni Moda',serif;margin-bottom:6px}
+.facts p{color:#A89F93;font-size:.92em}
+@media (max-width:1000px){.facts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.facts{grid-template-columns:minmax(0,1fr)}}
+.cal{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin-top:6px}
+.day{background:var(--card);padding:14px 16px;min-width:0}
+.day .d{font:400 22px/1.1 'Bodoni Moda',serif}
+.day .d small{font:500 10px 'DM Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-left:6px}
+.day p{color:#A89F93;font-size:.86em;margin-top:6px}
+.day.la{background:#24191a;outline:1px solid #5a3a36}
+.day .pill{display:inline-block;margin-top:10px;font:500 10px 'DM Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:#121010;background:var(--gold);padding:3px 7px}
+.day .pill.q{background:transparent;color:var(--gold);outline:1px solid var(--gold)}
+@media (max-width:1000px){.cal{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.legend{margin-top:12px;color:var(--muted)}
+
+/* notes -> changes */
+.changes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+.changes div{background:var(--card);padding:16px 18px}
+.changes q{display:block;color:var(--muted);font-style:italic;quotes:none;margin-bottom:6px;font-size:.92em}
+.changes p{font-size:.95em}
+@media (max-width:900px){.changes{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.changes{grid-template-columns:minmax(0,1fr)}}
+
+/* logo grid */
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+@media (max-width:1100px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.grid{grid-template-columns:minmax(0,1fr)}}
+.card{background:var(--card);display:flex;flex-direction:column;min-width:0;outline:1px solid transparent}
+.card.keep{outline:2px solid var(--gold)}
+.card.drop{opacity:.32}
+.panel{aspect-ratio:16/10;display:grid;place-items:center;overflow:hidden}
+.panel.w{background:var(--paper);color:var(--ink)}
+.panel.b{background:var(--night);color:var(--paper);border-top:1px solid var(--line)}
+.panel svg{width:var(--sw,74%);height:var(--sh,64%);display:block}
+.panel svg .acc{fill:currentColor}
+.goldmode .panel svg .acc{fill:#C9A45C}
+.meta{padding:10px 12px 12px;display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:4px 10px;align-items:center}
+.meta .id{font:500 11px 'DM Mono',monospace;color:var(--muted)}
+.meta .nm{font-size:.92em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.meta .note{grid-column:1/-1;color:#968d82;font-size:.82em;line-height:1.45}
+.btns{display:flex;gap:4px}
+.btns button,.btns a{font:500 10px 'DM Mono',monospace;letter-spacing:.06em;text-transform:uppercase;background:transparent;color:var(--text);border:1px solid #3a3230;padding:5px 8px;cursor:pointer;text-decoration:none;white-space:nowrap}
+.btns button:hover,.btns a:hover{border-color:var(--muted)}
+.card.keep .k{background:var(--gold);color:#121010;border-color:var(--gold)}
+.card.drop .d{background:#3a3230}
+.tools{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.tools button,.tools a{font:500 10.5px 'DM Mono',monospace;letter-spacing:.06em;text-transform:uppercase;background:transparent;color:var(--text);border:1px solid #3a3230;padding:8px 12px;border-radius:999px;cursor:pointer;text-decoration:none}
+.tools .on{background:var(--gold);color:#121010;border-color:var(--gold)}
+.picks{position:sticky;bottom:12px;margin:24px auto 0;width:max-content;max-width:calc(100% - 2*var(--gut));display:flex;gap:12px;align-items:center;background:#1d1818;border:1px solid #3a3230;border-radius:999px;padding:8px 10px 8px 18px;z-index:5}
+.picks span{font-size:.85em;color:#BDB4A8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.picks button{font:500 10px 'DM Mono',monospace;letter-spacing:.06em;text-transform:uppercase;background:var(--text);color:#121010;border:0;border-radius:999px;padding:8px 12px;cursor:pointer;white-space:nowrap}
+.archive{display:flex;justify-content:space-between;gap:16px;align-items:center;flex-wrap:wrap}
+.archive p{color:#BDB4A8;max-width:60ch}
+footer{padding:28px 0 60px;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="strip mono"><span>RemotoLabs®</span><span>L’Après · Hi-Fi Listening Lodge · Logo Round 2 · for RASA · Nights of Wonder</span><span>24.11.26</span></div>
+
+<div class="wrap">
+  <header class="hero">
+    <h1>L’Après<br><em>Round 2.</em></h1>
+    <p class="lede">Twenty logos built from your notes: <b>the Spark accent is the base</b>, the scripts are gone, the apostrophe is always there, the flags and circles are developed further, and <b>HI-FI LISTENING LODGE</b> runs through the system. Every mark is drawn from real font files and exported as a clean outlined vector, so each one downloads as an SVG.</p>
+  </header>
+
+  <section>
+    <div class="sh">
+      <h2><small class="mono">01 · What it is</small>L’Après is the after-party of the market.</h2>
+      <div>
+        <p>Nights of Wonder is RASA’s family holiday market under the Transamerica Pyramid, open 6 to 10 PM. On Fridays and Saturdays, once the market closes at 10, the AMA space turns into <b>L’Après</b>: an adults-only, alpine-styled <b>Hi-Fi Listening Lodge</b> until 2 AM. “Après” as in après-ski, the drinks after the slopes. Here it’s the night after the market.</p>
+        <p>Each night is an <b>L’Après Session</b>: a guest artist or selector playing records, a local mixologist with a signature cocktail matched to the sound, and stories behind the music. Entry is by RSVP with a cash bar, for about 200 people through the night. In RASA’s deck the room was sketched as “Château Après” with the same lodge line on a backlit sign over the door, which is why the logo has to work in neon or backlit.</p>
+      </div>
+    </div>
+    <div class="facts">
+      <div><b>Fri + Sat</b><p>10 PM – 2 AM, straight after the market closes at 10.</p></div>
+      <div><b>AMA space</b><p>Inside the market footprint at Transamerica Pyramid Center, San Francisco.</p></div>
+      <div><b>Sessions</b><p>Guest artist on vinyl, a mixologist’s signature cocktail, stories behind the sound.</p></div>
+      <div><b>RSVP</b><p>Cash bar, about 200 guests through the night.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sh">
+      <h2><small class="mono">02 · Event calendar</small>Six possible L’Après nights</h2>
+      <p>This is the twelve-night programme from RASA’s deck. The market runs 6 to 10 PM on every night shown, and L’Après opens at 10 on the Fridays and Saturdays. Christmas night (Dec 25) needs confirming.</p>
+    </div>
+    <div class="cal" id="cal"></div>
+    <p class="legend mono">Gold = L’Après night · Outline = to confirm</p>
+  </section>
+
+  <section>
+    <div class="sh">
+      <h2><small class="mono">03 · Your notes</small>What changed from Round 1</h2>
+      <p>Round 1 is kept at the bottom of the page.</p>
+    </div>
+    <div class="changes">
+      <div><q>My favourite is the Spark accent.</q><p>The spark over the E is now the core of every logo, from the wordmark to the flags, seals and icon.</p></div>
+      <div><q>Remove the cursive ones.</q><p>The scripts are gone. Everything is set in capitals or a serif lowercase.</p></div>
+      <div><q>Don’t do the tonearm apostrophe.</q><p>Removed. Every mark uses the font’s own apostrophe: L’APRÈS, never LAPRÈS.</p></div>
+      <div><q>I liked “Hi-Fi Listening Lodge”.</q><p>It’s now the standing line, set between hairlines like the door sign in RASA’s deck.</p></div>
+      <div><q>I like the flags.</q><p>Four flags: a felt pennant, a pennant with the lodge line, a swallowtail burgee and a single-line pennant for neon.</p></div>
+      <div><q>The circles need more separation.</q><p>Wider gaps between rings, arc text and the centre, and fewer elements in each seal.</p></div>
+    </div>
+  </section>
+
+  <div id="groups"></div>
+
+  <section class="archive">
+    <div class="sh" style="margin:0;flex:1">
+      <h2><small class="mono">Archive</small>Round 1</h2>
+      <p>The first 32 explorations in black and white, kept for reference.</p>
+    </div>
+    <div class="tools" style="margin:0"><a href="round-1.html">Open Round 1</a></div>
+  </section>
+
+  <div class="picks"><span id="pickTxt">No picks yet</span><button id="copy">Copy picks</button></div>
+  <footer class="mono">RemotoLabs® for RASA · Logos set in Bodoni Moda, Italiana, Cinzel, Abril Fatface, Libre Caslon Display, Gloock, Prata and DM Mono (all SIL Open Font License) and outlined</footer>
+</div>
+
+<script src="r2-data.js"></script>
+<script>
+const CAL=[
+ ['Thu','Dec 10','SF Symphony, tree lighting, Mayor',0],['Fri','Dec 11','Movie night: Eight Crazy Nights · 8th night of Hanukkah',1],['Sat','Dec 12','RASA Winter Wonderland Showcase (ticketed)',1],['Sun','Dec 13','The Grinch, Santa, Dog Days of December',0],
+ ['Thu','Dec 17','SF Ballet, harps and strings',0],['Fri','Dec 18','Movie night: A Christmas Story',1],['Sat','Dec 19','A Charlie Brown Christmas, Pajama Night, Mrs. Claus',1],['Sun','Dec 20','Rudolph, Santa, local choir',0],
+ ['Thu','Dec 24','Christmas Eve, cookies for Santa, carolers',0],['Fri','Dec 25','Christmas, movie night: Home Alone',2],['Sat','Dec 26','Frosty the Snowman, Kwanzaa (MoAD)',1],['Sun','Dec 27','The First Snow in San Francisco, jazz',0]];
+document.getElementById('cal').innerHTML=CAL.map(([w,d,p,l])=>`<div class="day ${l?'la':''}"><div class="d">${d}<small>${w}</small></div><p>${p}</p>${l===1?'<span class="pill">L’Après · 10 PM – 2 AM</span>':l===2?'<span class="pill q">L’Après? confirm</span>':''}</div>`).join('');
+
+const GROUPS=[
+ ['spark','04 · The Spark','Spark wordmarks','The favourite, refined. A four-point spark takes the place of the grave accent, and the rest is the type. These are the same idea across eight typefaces, from fine couture to heavy, with and without the lodge line.'],
+ ['flag','05 · Flags','Pennants and burgee','The flags you liked, now with the spark wordmark cut into them, left-aligned to the hoist. F4 is drawn as a single line so a sign-maker can bend it in neon.'],
+ ['circle','06 · Circles','Seals and labels','The same circles with more air: wider gaps between rings, arc text and the centre, and fewer elements in each seal.'],
+ ['lockup','07 · Lockups','Sign, plaque, icon, Sessions','The working kit: a horizontal sign for the AMA door, a closed hotel-style plaque, a profile and wristband icon, and the Sessions lockup for each night’s artist.'],
+];
+const KEY='lapres-r2-picks';let picks={};try{picks=JSON.parse(localStorage.getItem(KEY)||'{}')}catch(_){}
+const svg=m=>`<svg viewBox="${m.vb}" role="img" aria-label="L’Après ${m.id} ${m.name}"><path d="${m.d}" fill="currentColor"/>${m.a?`<path class="acc" d="${m.a}"/>`:''}</svg>`;
+const size=m=>{const r=m.ratio;return r>2.6?'--sw:80%;--sh:60%':r>1.6?'--sw:74%;--sh:64%':'--sw:70%;--sh:74%'};
+document.getElementById('groups').innerHTML=GROUPS.map(([g,small,title,intro],gi)=>`
+<section>
+  <div class="sh"><h2><small class="mono">${small}</small>${title}</h2><p>${intro}</p></div>
+  ${gi===0?`<div class="tools"><button id="goldBtn">Preview spark in gold</button><a href="logos/lapres-logos-r2.zip" download>Download all 20 SVGs (zip)</a></div>`:''}
+  <div class="grid">${R2.filter(m=>m.group===g).map(m=>`
+    <article class="card" data-id="${m.id}" data-name="${m.name}">
+      <div class="panel w" style="${size(m)}">${svg(m)}</div>
+      <div class="panel b" style="${size(m)}">${svg(m)}</div>
+      <div class="meta"><span class="id">${m.id}</span><span class="nm">${m.name}</span>
+        <span class="btns"><button class="k">Keep</button><button class="d">Drop</button><a href="${m.file}" download title="Download SVG">SVG</a></span>
+        <span class="note">${m.note}</span></div>
+    </article>`).join('')}</div>
+</section>`).join('');
+
+function paint(){document.querySelectorAll('.card').forEach(c=>{c.classList.toggle('keep',picks[c.dataset.id]==='k');c.classList.toggle('drop',picks[c.dataset.id]==='d')});const k=Object.keys(picks).filter(i=>picks[i]==='k');document.getElementById('pickTxt').textContent=k.length?`Keeping ${k.length}: ${k.join(', ')}`:'No picks yet'}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(picks))}catch(_){}paint()}
+document.addEventListener('click',ev=>{const b=ev.target.closest('.btns button');if(!b)return;const id=b.closest('.card').dataset.id,v=b.classList.contains('k')?'k':'d';if(picks[id]===v)delete picks[id];else picks[id]=v;save()});
+document.getElementById('goldBtn').onclick=e=>{document.body.classList.toggle('goldmode');e.target.classList.toggle('on')};
+document.getElementById('copy').onclick=()=>{const nm=i=>document.querySelector(`.card[data-id="${i}"]`).dataset.name;const k=Object.keys(picks).filter(i=>picks[i]==='k'),d=Object.keys(picks).filter(i=>picks[i]==='d');const t=`L’Après Round 2 picks\nKeep: ${k.map(i=>i+' '+nm(i)).join(', ')||'none'}\nDrop: ${d.join(', ')||'none'}`;(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>{document.getElementById('copy').textContent='Copied'},()=>prompt('Copy:',t))};
+paint();
+</script>
+</body>
+</html>

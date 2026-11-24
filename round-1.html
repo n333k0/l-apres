@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>L'Après — Round 1 archive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Italiana&family=Gloock&family=Cinzel:wght@400..900&family=Sacramento&family=Yellowtail&family=Mr+Dafoe&family=Pinyon+Script&family=Great+Vibes&family=Monsieur+La+Doulaise&family=Allura&family=Damion&family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400..700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --page:#0E0C0C; --text:#EDE6DA; --muted:#8C847A; --line:#2A2524;
+  --paper:#F4EFE7; --ink:#121010; --night:#0E0C0C;
+  --gut:clamp(16px,3.2vw,56px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--page);color:var(--text);font:400 15px/1.5 'DM Sans',system-ui,sans-serif;overflow-x:hidden}
+@media (min-width:1700px){body{font-size:17px}}
+.mono{font-family:'DM Mono',monospace;font-size:.72em;letter-spacing:.08em;text-transform:uppercase}
+
+/* header strip */
+.strip{display:flex;justify-content:space-between;gap:16px;padding:14px var(--gut);border-bottom:1px solid var(--line);color:var(--muted)}
+.strip span:nth-child(2){text-align:center;flex:1}
+@media (max-width:640px){.strip span:nth-child(2){display:none}}
+
+.wrap{padding:0 var(--gut)}
+.hero{padding:clamp(48px,9vw,140px) 0 clamp(32px,5vw,72px)}
+.hero h1{font:400 clamp(44px,9vw,150px)/.92 'Bodoni Moda',serif;letter-spacing:-.02em}
+.hero h1 em{font-style:italic}
+.hero p{max-width:58ch;margin-top:24px;color:#BDB4A8;font-size:1.06em}
+
+section{padding:clamp(36px,5vw,72px) 0;border-top:1px solid var(--line)}
+.sh{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:24px;margin-bottom:28px}
+.sh h2{font:400 clamp(26px,3vw,44px)/1.05 'Bodoni Moda',serif}
+.sh h2 small{display:block;margin-bottom:10px;color:var(--muted)}
+.sh p{color:#BDB4A8;max-width:62ch}
+@media (max-width:760px){.sh{grid-template-columns:minmax(0,1fr)}}
+
+/* reference read */
+.refs{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px}
+.refs figure{position:relative;aspect-ratio:3/4;overflow:hidden;background:#1a1616}
+.refs img{width:100%;height:100%;object-fit:cover;display:block}
+.refs figcaption{position:absolute;left:0;right:0;bottom:0;padding:6px 8px;background:var(--night);color:#cfc6ba;font:500 10px/1.3 'DM Mono',monospace;letter-spacing:.04em;text-transform:uppercase}
+@media (max-width:900px){.refs{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media (max-width:520px){.refs{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.rules{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin-top:6px}
+.rules div{background:#161212;padding:18px}
+.rules b{display:block;font:400 22px/1.1 'Bodoni Moda',serif;margin-bottom:6px;color:var(--text)}
+.rules p{color:#A89F93;font-size:.92em}
+@media (max-width:900px){.rules{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.rules{grid-template-columns:minmax(0,1fr)}}
+
+/* option grid */
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+@media (max-width:1100px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.grid{grid-template-columns:minmax(0,1fr)}}
+.card{background:#161212;display:flex;flex-direction:column;min-width:0;outline:1px solid transparent;transition:outline-color .15s}
+.card.keep{outline:2px solid #E9D9B8}
+.card.drop{opacity:.32}
+.panel{container-type:inline-size;aspect-ratio:16/10;display:grid;place-items:center;overflow:hidden;position:relative}
+.panel.w{--bg:var(--paper);--fg:var(--ink);background:var(--bg);color:var(--fg)}
+.panel.b{--bg:var(--night);--fg:var(--paper);background:var(--bg);color:var(--fg)}
+.meta{display:flex;align-items:center;gap:10px;padding:10px 12px}
+.meta .id{font:500 11px 'DM Mono',monospace;color:var(--muted)}
+.meta .nm{flex:1;min-width:0;font-size:.9em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tag{font:500 9.5px 'DM Mono',monospace;letter-spacing:.06em;text-transform:uppercase;padding:3px 6px;border:1px solid #3a3230;color:#BDB4A8;white-space:nowrap}
+.btns{display:flex;gap:4px}
+.btns button{font:500 10px 'DM Mono',monospace;letter-spacing:.06em;text-transform:uppercase;background:transparent;color:var(--text);border:1px solid #3a3230;padding:5px 8px;cursor:pointer}
+.btns button:hover{border-color:#8C847A}
+.card.keep .k{background:#E9D9B8;color:#121010;border-color:#E9D9B8}
+.card.drop .d{background:#3a3230}
+
+/* picks bar */
+.picks{position:sticky;bottom:12px;margin:24px auto 0;width:max-content;max-width:calc(100% - 2*var(--gut));display:flex;gap:12px;align-items:center;background:#1d1818;border:1px solid #3a3230;border-radius:999px;padding:8px 10px 8px 18px;z-index:5}
+.picks span{font-size:.85em;color:#BDB4A8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.picks button{font:500 10px 'DM Mono',monospace;letter-spacing:.06em;text-transform:uppercase;background:var(--text);color:#121010;border:0;border-radius:999px;padding:8px 12px;cursor:pointer;white-space:nowrap}
+
+/* ---- mark primitives ---- */
+.m{line-height:1;white-space:nowrap;text-align:center;position:relative}
+.acc{position:relative;display:inline-block}
+.acc .spark{position:absolute;left:calc(50% - var(--ls,0em)/2);transform:translateX(-50%);top:-.2em;width:.26em;height:.26em}
+.acc .disc{position:absolute;left:calc(50% - var(--ls,0em)/2);transform:translateX(-50%);top:-.2em;width:.3em;height:.3em}
+.acc .slope{position:absolute;left:calc(50% - var(--ls,0em)/2 - .06em);top:-.05em;width:1.15em;border-top:.022em solid currentColor;transform-origin:0 0;transform:rotate(-17deg)}
+.sub{font:500 2.1cqi/1 'DM Mono',monospace;letter-spacing:.32em;text-transform:uppercase;margin-top:3.2cqi;padding-left:.32em}
+.arm{display:inline-block;width:.34em;height:.62em;vertical-align:.1em;margin:0 .01em 0 -.02em}
+svg.full{width:88%;height:88%;overflow:visible}
+.panel svg text{fill:currentColor}
+.sh h2 small{font-size:12px}
+</style>
+</head>
+<body>
+
+<div class="strip mono"><span>RemotoLabs®</span><span>L'Après · Hi-Fi Listening Lodge · Wordmark Round 1 · Black &amp; white only</span><span>Private · 24.11.26</span></div>
+
+<div class="wrap">
+  <header class="hero">
+    <h1>Round 1,<br><em>kept for the record.</em></h1>
+    <p><a href="index.html" style="color:#E9D9B8">← Back to Round 2</a><br><br>Round 1 of the wordmark for RASA’s late-night listening lodge inside Nights of Wonder. There are 32 options across four routes, all in black and white, so we choose the drawing before any gold, neon or texture goes on. Mark <b>Keep</b> or <b>Drop</b> on each one, then copy your picks at the bottom.</p>
+  </header>
+
+
+
+  <div id="routes"></div>
+
+  <div class="picks" id="picks"><span id="pickTxt">No picks yet</span><button id="copy">Copy picks</button></div>
+  <div style="height:40px"></div>
+</div>
+
+<script>
+const REFS=[
+ ['img08','Santa on the decks'],['img03','Gifts on a red car, snow'],['img07','Red chess, gold glass'],['img02','Après Ski 2025 poster'],
+ ['img06','After Hours poster'],['img04','Santa alone at the bar'],['img05','Numbered red lockers'],['img01','Flash champagne toast'],
+ ['img09','YSL photocopy poster'],['img10','Night has come, blur type'],['img11','Light trails'],['img12','Radio City in snow']
+];
+
+
+const SPARK='<svg class="spark" viewBox="0 0 100 100"><path d="M50 0C53 35 65 47 100 50C65 53 53 65 50 100C47 65 35 53 0 50C35 47 47 35 50 0Z" fill="currentColor"/></svg>';
+const SPARKP='M50 0C53 35 65 47 100 50C65 53 53 65 50 100C47 65 35 53 0 50C35 47 47 35 50 0Z';
+const DISC='<svg class="disc" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="currentColor"/><circle cx="50" cy="50" r="20" style="fill:var(--bg)"/><circle cx="50" cy="50" r="7" fill="currentColor"/></svg>';
+const ARM='<svg class="arm" viewBox="0 0 34 62"><circle cx="27" cy="7" r="6" fill="none" stroke="currentColor" stroke-width="2.4"/><circle cx="27" cy="7" r="2" fill="currentColor"/><path d="M27 7 L24 38 L11 50" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><rect x="2" y="46" width="13" height="9" rx="1.5" transform="rotate(-42 8 50)" fill="currentColor"/></svg>';
+const E=(inner,ls)=>`<span class="acc" style="--ls:${ls||0}em">E${inner}</span>`;
+const e=(inner,ls)=>`<span class="acc" style="--ls:${ls||0}em">e${inner}</span>`;
+const PEAK=(x,y,w,h,sw)=>`<polyline points="${x},${y+h} ${x+w*.38},${y} ${x+w*.55},${y+h*.38} ${x+w*.66},${y+h*.22} ${x+w},${y+h}" fill="none" stroke="currentColor" stroke-width="${sw}" stroke-linejoin="miter"/>`;
+
+// arc helpers for SVG text on a circle
+const arcTop=(id,cx,cy,r)=>`<path id="${id}" d="M ${cx-r} ${cy} A ${r} ${r} 0 0 1 ${cx+r} ${cy}" fill="none"/>`;
+const arcBot=(id,cx,cy,r)=>`<path id="${id}" d="M ${cx-r} ${cy} A ${r} ${r} 0 0 0 ${cx+r} ${cy}" fill="none"/>`;
+const ring=(id,cx,cy,r)=>`<path id="${id}" d="M ${cx} ${cy-r} A ${r} ${r} 0 1 1 ${cx-.01} ${cy-r}" fill="none"/>`;
+
+const ROUTES=[
+{key:'A',title:'Couture Didone',intro:'High-contrast French capitals, the most “maison” route. The È accent is where we play: a gold spark, a ski slope or a hairline. It reads as a Paris label that went skiing.',
+ opts:[
+  ['Maison caps','Bodoni Moda caps, accent kept classic.','', s=>`<div class="m" style="font:500 12.5cqi 'Bodoni Moda';letter-spacing:.02em">L’APRÈS</div>`],
+  ['Spark accent','The grave accent becomes a four-point spark, the night’s star.','gold-ready', s=>`<div class="m" style="font:500 12.5cqi 'Bodoni Moda';letter-spacing:.02em">L’APR${E(SPARK,.02)}S</div>`],
+  ['Ski-slope accent','The accent stretches into a hairline piste running down to the E.','', s=>`<div class="m" style="font:500 12.5cqi 'Bodoni Moda';letter-spacing:.02em">L’APR${E('<i class="slope"></i>',.02)}S</div>`],
+  ['Italic L’','A big italic L’ leans into tracked caps: “the after”.','', s=>`<div class="m"><span style="font:italic 400 24cqi 'Bodoni Moda'">L’</span><span style="font:500 10.5cqi 'Bodoni Moda';letter-spacing:.1em">APRÈS</span></div>`],
+  ['Script over caps','Wide Italiana caps with a script L’ and “Sessions” laid over them.','', s=>`<div class="m" style="padding-left:15cqi"><div style="font:400 12cqi 'Italiana';letter-spacing:.24em;padding-left:.24em">APRÈS</div><div style="position:absolute;left:0;top:-8cqi;font:400 22cqi 'Pinyon Script'">L’</div><div style="position:absolute;right:-2cqi;bottom:-8cqi;font:400 9cqi 'Pinyon Script'">Sessions</div></div>`],
+  ['Italiana lodge','Thin poster caps from the Après Ski 2025 ref, with a lodge caption.','', s=>`<div class="m"><div style="font:400 12cqi 'Italiana';letter-spacing:.14em;padding-left:.14em">L’APRÈS</div><div class="sub">Hi-Fi Listening Lodge</div></div>`],
+  ['Cropped giant','For key art: APRÈS too big for the frame, with L’ and Sessions in the corner.','key-art', s=>`<div style="position:absolute;inset:0"><div style="position:absolute;left:5cqi;top:5cqi;font:italic 400 9cqi/1 'Bodoni Moda'">L’</div><div style="position:absolute;right:5cqi;top:6.5cqi;font:400 6.5cqi/1 'Pinyon Script'">Sessions</div><div style="position:absolute;left:4cqi;bottom:-7cqi;font:800 29cqi/1 'Bodoni Moda';letter-spacing:-.03em;white-space:nowrap">APRÈS</div></div>`],
+  ['Lowercase Gloock','Soft heavy lowercase, a spark over the e. Warmer and sexier.','gold-ready', s=>`<div class="m" style="font:400 15cqi 'Gloock';letter-spacing:-.01em">l’apr${e(SPARK.replace('class="spark"','class="spark" style="top:.02em"'),-.01)}s</div>`],
+ ]},
+{key:'B',title:'Neon Script',intro:'One hand-written line that a fabricator can bend into tube. Monoline scripts are “tube-ready”; contrast scripts only work as backlit acrylic. Whichever wins gets redrawn as a single centreline.',
+ opts:[
+  ['Sacramento','The cleanest monoline, very neon.','tube-ready', s=>`<div class="m" style="font:400 21cqi 'Sacramento'">L’Après</div>`],
+  ['Yellowtail','A 1950s sign-painter script with more weight.','tube-ready', s=>`<div class="m" style="font:400 17cqi 'Yellowtail'">L’Après</div>`],
+  ['Mr Dafoe','A fast brush signature, the YSL-signature energy.','tube-ready', s=>`<div class="m" style="font:400 19cqi 'Mr Dafoe'">L’Après</div>`],
+  ['Damion + underline','A bold rounded script with a swash underline as its own tube.','tube-ready', s=>`<div class="m"><div style="font:400 16cqi 'Damion'">L’Après</div><svg viewBox="0 0 300 20" style="width:52cqi;height:3.4cqi;display:block;margin:.6cqi auto 0"><path d="M4 14 C 80 2, 200 2, 296 10" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/></svg></div>`],
+  ['Allura + Sessions','A light script over tracked mono caps.','tube-ready', s=>`<div class="m"><div style="font:400 18cqi 'Allura'">L’Après</div><div class="sub" style="margin-top:1cqi">Sessions</div></div>`],
+  ['Pinyon couture','Engraved contrast script, the most French. Backlit only.','backlit', s=>`<div class="m" style="font:400 17cqi 'Pinyon Script'">L’Après</div>`],
+  ['Great Vibes','Romantic and loopy, the champagne-toast script.','backlit', s=>`<div class="m" style="font:400 18cqi 'Great Vibes'">L’Après</div>`],
+  ['Monsieur','A hairline flourish, like a maître d’s signature.','backlit', s=>`<div class="m" style="font:400 20cqi 'Monsieur La Doulaise'">L’Après</div>`],
+ ]},
+{key:'C',title:'Lodge Crest',intro:'A vintage Alpine ski club for the after-party: badges, pennants and tickets built around a peak and an L’ monogram. It works on wristbands, coasters and a door plaque.',
+ opts:[
+  ['Oval badge','A double-line oval club badge.','', s=>`<svg class="full" viewBox="0 0 400 250"><ellipse cx="200" cy="125" rx="176" ry="108" fill="none" stroke="currentColor" stroke-width="2.2"/><ellipse cx="200" cy="125" rx="166" ry="98" fill="none" stroke="currentColor" stroke-width=".9"/><text x="200" y="84" text-anchor="middle" font-family="DM Mono" font-size="10" letter-spacing="3.4">HI-FI · LISTENING · LODGE</text><text x="200" y="145" text-anchor="middle" font-family="Bodoni Moda" font-style="italic" font-size="62">L’Après</text><text x="200" y="176" text-anchor="middle" font-family="DM Mono" font-size="10" letter-spacing="3.4">SESSIONS · SAN FRANCISCO</text></svg>`],
+  ['Peak monogram','The L’ sits under the peak.','', s=>`<svg class="full" viewBox="0 0 400 250">${PEAK(118,22,164,104,3)}<text x="200" y="118" text-anchor="middle" font-family="Bodoni Moda" font-style="italic" font-size="62">L’</text><text x="200" y="182" text-anchor="middle" font-family="Cinzel" font-weight="500" font-size="40" letter-spacing="9">L’APRÈS</text><text x="200" y="214" text-anchor="middle" font-family="DM Mono" font-size="10.5" letter-spacing="4">HI-FI LISTENING LODGE</text></svg>`],
+  ['Ski-club shield','A club shield with the L’A monogram.','', s=>`<svg class="full" viewBox="0 0 400 250"><path d="M150 20 H250 V120 C250 168 222 196 200 230 C178 196 150 168 150 120 Z" fill="currentColor"/><text x="200" y="52" text-anchor="middle" font-family="DM Mono" font-size="10" letter-spacing="3.5" style="fill:var(--bg)">CLUB</text><text x="200" y="132" text-anchor="middle" font-family="Bodoni Moda" font-style="italic" font-size="56" style="fill:var(--bg)">L’A</text><text x="200" y="168" text-anchor="middle" font-family="DM Mono" font-size="10" letter-spacing="3.5" style="fill:var(--bg)">MMXXVI</text></svg>`],
+  ['Pennant','A vintage ski-resort felt pennant.','', s=>`<svg class="full" viewBox="0 0 400 250"><path d="M40 40 L372 125 L40 210 Z" fill="currentColor"/><rect x="40" y="40" width="20" height="170" style="fill:var(--bg)" opacity=".0"/><line x1="58" y1="44" x2="58" y2="206" style="stroke:var(--bg)" stroke-width="1.4"/><text x="74" y="136" font-family="Cinzel" font-weight="600" font-size="38" letter-spacing="6" style="fill:var(--bg)">L’APRÈS</text></svg>`],
+  ['Round patch','A sew-on patch with the peak and text running around it.','', s=>`<svg class="full" viewBox="0 0 400 250"><defs>${ring('rp'+s,200,125,92)}</defs><circle cx="200" cy="125" r="112" fill="none" stroke="currentColor" stroke-width="2.2"/><circle cx="200" cy="125" r="74" fill="none" stroke="currentColor" stroke-width=".9"/><text font-family="DM Mono" font-size="12.5" textLength="574" lengthAdjust="spacing"><textPath href="#rp${s}" textLength="574" lengthAdjust="spacing">L’APRÈS SESSIONS · HI-FI LISTENING LODGE · </textPath></text>${PEAK(150,86,100,58,2.4)}<text x="200" y="174" text-anchor="middle" font-family="Bodoni Moda" font-style="italic" font-size="22">L’Après</text></svg>`],
+  ['Horizontal lockup','A peak icon beside Cinzel caps, for signage.','', s=>`<svg class="full" viewBox="0 0 400 250">${PEAK(30,90,70,48,2.6)}<line x1="118" y1="82" x2="118" y2="168" stroke="currentColor" stroke-width="1"/><text x="136" y="128" font-family="Cinzel" font-weight="500" font-size="44" letter-spacing="6">L’APRÈS</text><text x="138" y="158" font-family="DM Mono" font-size="10.5" letter-spacing="4">HI-FI LISTENING LODGE</text></svg>`],
+  ['Admit one','A lift-pass and ticket stub for RSVPs.','', s=>`<svg class="full" viewBox="0 0 400 250"><path d="M30 50 H370 V105 A20 20 0 0 0 370 145 V200 H30 V145 A20 20 0 0 0 30 105 Z" fill="none" stroke="currentColor" stroke-width="2"/><line x1="290" y1="56" x2="290" y2="194" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 5"/><text x="160" y="86" text-anchor="middle" font-family="DM Mono" font-size="10.5" letter-spacing="4">ADMIT ONE</text><text x="160" y="142" text-anchor="middle" font-family="Bodoni Moda" font-style="italic" font-size="50">L’Après</text><text x="160" y="176" text-anchor="middle" font-family="DM Mono" font-size="10.5" letter-spacing="4">SESSIONS</text><text x="330" y="131" text-anchor="middle" font-family="Cinzel" font-size="22" font-weight="600">N°</text></svg>`],
+  ['Engraved caps','Cinzel between hairline rules, a hotel-plaque look.','', s=>`<div class="m"><div style="display:flex;align-items:center;gap:3cqi;justify-content:center"><span style="width:9cqi;border-top:1px solid currentColor"></span><span style="font:500 9.5cqi 'Cinzel';letter-spacing:.16em;padding-left:.16em">L’APRÈS</span><span style="width:9cqi;border-top:1px solid currentColor"></span></div><div class="sub">Est. MMXXVI · San Francisco</div></div>`],
+ ]},
+{key:'D',title:'Centre Label',intro:'The boldest route. L’Après is a record label: the logo is the round paper label at the centre of a vinyl, and every Session is a new pressing. Nothing in the refs does this, and it belongs to a listening lodge.',
+ opts:[
+  ['Solid label','A full record label: wordmark, spindle hole, text around the edge.','', s=>`<svg class="full" viewBox="0 0 400 250"><defs>${arcTop('dt'+s,200,125,94)}${arcBot('db'+s,200,125,104)}</defs><circle cx="200" cy="125" r="114" fill="currentColor"/><circle cx="200" cy="125" r="6" style="fill:var(--bg)"/><text text-anchor="middle" font-family="DM Mono" font-size="11" letter-spacing="4" style="fill:var(--bg)"><textPath href="#dt${s}" startOffset="50%">SESSIONS · SIDE A</textPath></text><text text-anchor="middle" font-family="DM Mono" font-size="11" letter-spacing="4" style="fill:var(--bg)"><textPath href="#db${s}" startOffset="50%">HI-FI LISTENING LODGE · 33⅓</textPath></text><text x="200" y="100" text-anchor="middle" font-family="Bodoni Moda" font-style="italic" font-size="44" style="fill:var(--bg)">L’Après</text></svg>`],
+  ['In the grooves','The label inside fine record grooves.','', s=>`<svg class="full" viewBox="0 0 400 250">${Array.from({length:12},(_,i)=>`<circle cx="200" cy="125" r="${60+i*5}" fill="none" stroke="currentColor" stroke-width="${i%4==3?1.1:.5}"/>`).join('')}<circle cx="200" cy="125" r="54" fill="currentColor"/><circle cx="200" cy="125" r="3.5" style="fill:var(--bg)"/><text x="200" y="111" text-anchor="middle" font-family="Bodoni Moda" font-style="italic" font-size="19" style="fill:var(--bg)">L’Après</text><text x="200" y="149" text-anchor="middle" font-family="DM Mono" font-size="6.5" letter-spacing="2.4" style="fill:var(--bg)">SESSIONS</text></svg>`],
+  ['Name ring','L’APRÈS runs round the record, with a spark at the spindle. Good for coasters and stickers.','', s=>`<svg class="full" viewBox="0 0 400 250"><defs>${ring('dr'+s,200,125,88)}</defs><circle cx="200" cy="125" r="112" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="200" cy="125" r="64" fill="none" stroke="currentColor" stroke-width=".8"/><text font-family="Bodoni Moda" font-weight="500" font-size="27"><textPath href="#dr${s}" textLength="550" lengthAdjust="spacing">L’APRÈS · L’APRÈS · L’APRÈS · </textPath></text><svg x="182" y="107" width="36" height="36" viewBox="0 0 100 100"><path d="${SPARKP}" fill="currentColor"/></svg></svg>`],
+  ['Half out of the sleeve','A sleeve with the record sliding out. Every Session is a new sleeve.','key-art', s=>`<svg class="full" viewBox="0 0 400 250"><circle cx="250" cy="125" r="100" fill="currentColor"/><circle cx="250" cy="125" r="34" style="fill:var(--bg)"/><circle cx="250" cy="125" r="3" fill="currentColor"/><rect x="60" y="20" width="210" height="210" style="fill:var(--bg)" stroke="currentColor" stroke-width="2"/><text x="78" y="62" font-family="DM Mono" font-size="9.5" letter-spacing="3">SESSIONS · Nº 01</text><text x="78" y="212" font-family="Bodoni Moda" font-style="italic" font-size="44">L’Après</text></svg>`],
+  ['Tonearm apostrophe','The apostrophe is drawn as a tonearm dropping onto the record.','', s=>`<div class="m" style="font:500 15cqi 'Bodoni Moda';letter-spacing:.01em">L${ARM}Après</div>`],
+  ['Record accent','The È accent is a tiny spinning record.','gold-ready', s=>`<div class="m" style="font:500 12.5cqi 'Bodoni Moda';letter-spacing:.02em">L’APR${E(DISC,.02)}S</div>`],
+  ['Monogram label','An outline label with a large L’A monogram.','', s=>`<svg class="full" viewBox="0 0 400 250"><circle cx="200" cy="125" r="112" fill="none" stroke="currentColor" stroke-width="2.2"/><circle cx="200" cy="125" r="104" fill="none" stroke="currentColor" stroke-width=".8"/><text x="200" y="140" text-anchor="middle" font-family="Bodoni Moda" font-style="italic" font-size="96">L’A</text><circle cx="200" cy="178" r="4.5" fill="currentColor"/><text x="200" y="208" text-anchor="middle" font-family="DM Mono" font-size="9.5" letter-spacing="3.6">SESSIONS</text></svg>`],
+  ['Spark spindle','A clean label with a gold spark where the hole would be.','gold-ready', s=>`<svg class="full" viewBox="0 0 400 250"><defs>${arcTop('st'+s,200,125,90)}${arcBot('sb'+s,200,125,100)}</defs><circle cx="200" cy="125" r="112" fill="none" stroke="currentColor" stroke-width="2"/><text text-anchor="middle" font-family="Bodoni Moda" font-weight="500" font-size="24" letter-spacing="7"><textPath href="#st${s}" startOffset="50%">L’APRÈS</textPath></text><text text-anchor="middle" font-family="DM Mono" font-size="10" letter-spacing="4"><textPath href="#sb${s}" startOffset="50%">HI-FI LISTENING LODGE</textPath></text><svg x="170" y="95" width="60" height="60" viewBox="0 0 100 100"><path d="${SPARKP}" fill="currentColor"/></svg></svg>`],
+ ]},
+];
+
+const KEY='lapres-r1-picks';
+let picks={}; try{picks=JSON.parse(localStorage.getItem(KEY)||'{}')}catch(_){}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(picks))}catch(_){}; renderPicks()};
+
+document.getElementById('routes').innerHTML=ROUTES.map((r,ri)=>`
+<section>
+  <div class="sh"><h2><small class="mono">0${ri+1} · Route ${r.key}</small>${r.title}</h2><p>${r.intro}</p></div>
+  <div class="grid">${r.opts.map((o,oi)=>{const id=r.key+(oi+1);return `
+    <article class="card" data-id="${id}" data-name="${o[0]}">
+      <div class="panel w">${o[3](id+'w')}</div>
+      <div class="panel b">${o[3](id+'b')}</div>
+      <div class="meta"><span class="id">${id}</span><span class="nm" title="${o[1]}">${o[0]}</span>${o[2]?`<span class="tag">${o[2]}</span>`:''}
+        <span class="btns"><button class="k">Keep</button><button class="d">Drop</button></span></div>
+    </article>`}).join('')}</div>
+</section>`).join('');
+
+// optical centring: offsets measured from rendered ink (cqi units), A7 and D4 are intentionally off-centre
+const NUDGE={A1:[0,1.65],A2:[0,3.45],A3:[-1.35,5.1],A4:[1.2,0],A5:[-.9,1.2],B1:[0,-1.5],B2:[0,-1.65],B3:[.45,-1.95],B4:[0,-1.65],B5:[0,-1.5],B8:[0,1.35],C2:[.9,2.1],C4:[-.9,0],C6:[2.7,0],D5:[0,-1.2],D6:[0,3.9]};
+document.querySelectorAll('.card').forEach(c=>{const n=NUDGE[c.dataset.id];if(n)c.querySelectorAll('.panel').forEach(p=>{p.firstElementChild.style.transform=`translate(${n[0]}cqi,${n[1]}cqi)`})});
+function paint(){document.querySelectorAll('.card').forEach(c=>{c.classList.toggle('keep',picks[c.dataset.id]==='k');c.classList.toggle('drop',picks[c.dataset.id]==='d')})}
+function renderPicks(){paint();const k=Object.keys(picks).filter(i=>picks[i]==='k');document.getElementById('pickTxt').textContent=k.length?`Keeping ${k.length}: ${k.join(', ')}`:'No picks yet'}
+document.addEventListener('click',ev=>{const b=ev.target.closest('.btns button');if(!b)return;const id=b.closest('.card').dataset.id;const v=b.classList.contains('k')?'k':'d';picks[id]=picks[id]===v?undefined:v;if(!picks[id])delete picks[id];save()});
+document.getElementById('copy').onclick=()=>{const name=i=>document.querySelector(`.card[data-id="${i}"]`).dataset.name;const k=Object.keys(picks).filter(i=>picks[i]==='k'),d=Object.keys(picks).filter(i=>picks[i]==='d');const t=`L'Après Round 1 picks\nKeep: ${k.map(i=>i+' '+name(i)).join(', ')||'none'}\nDrop: ${d.join(', ')||'none'}`;navigator.clipboard?.writeText(t).then(()=>{document.getElementById('copy').textContent='Copied'},()=>prompt('Copy:',t))};
+renderPicks();
+</script>
+</body>
+</html>
