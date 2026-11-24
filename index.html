@@ -7,7 +7,7 @@
 <meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400..700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400..700&family=Noto+Serif+Display:wdth,wght@62.5..100,300..800&family=Italiana&family=Cinzel:wght@500&family=Abril+Fatface&family=Libre+Caslon+Display&family=Gloock&family=Prata&family=Sacramento&family=Yellowtail&family=Mr+Dafoe&family=Pinyon+Script&family=Great+Vibes&family=Monsieur+La+Doulaise&family=Allura&family=Damion&display=swap" rel="stylesheet">
 <style>
 :root{--page:#0E0C0C;--text:#EDE6DA;--muted:#8C847A;--line:#2A2524;--card:#161212;--paper:#F4EFE7;--ink:#121010;--night:#0E0C0C;--gold:#E9D9B8;--gut:clamp(16px,3.2vw,56px)}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -103,6 +103,19 @@ section{padding:clamp(36px,5vw,72px) 0;border-top:1px solid var(--line)}
 .divider h2{font:400 clamp(40px,6vw,96px)/.95 'Bodoni Moda',serif}
 .divider h2 em{font-style:italic}
 .divider p{color:#BDB4A8;margin-top:12px;max-width:60ch}
+.dl{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.dl a{font:500 11px 'DM Mono',monospace;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;color:var(--text);border:1px solid #3a3230;border-radius:999px;padding:10px 14px}
+.dl a.main{background:var(--gold);color:#121010;border-color:var(--gold)}
+.faces{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+@media (max-width:1000px){.faces{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.faces{grid-template-columns:minmax(0,1fr)}}
+.face{background:var(--card);padding:18px 18px 14px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.face .spec{font-size:clamp(30px,3.2vw,46px);line-height:1.35;white-space:nowrap;overflow:hidden;text-overflow:clip;color:var(--paper)}
+.face .fam{font:500 15px 'DM Sans',sans-serif}
+.face .set{color:#A89F93;font-size:.86em}
+.face .use{font:500 10.5px 'DM Mono',monospace;letter-spacing:.06em;color:var(--muted)}
+.face .btns{margin-top:4px;flex-wrap:wrap}
+.meta .type{grid-column:1/-1;font:500 10.5px/1.5 'DM Mono',monospace;color:#B9AE9F;letter-spacing:.02em}
 footer{padding:28px 0 60px;color:var(--muted)}
 </style>
 </head>
@@ -113,6 +126,7 @@ footer{padding:28px 0 60px;color:var(--muted)}
   <header class="hero">
     <h1>L’Après<br><em>Round 3.</em></h1>
     <p class="lede">Twelve new logos drawn from the references added to the board: <b>sound marks</b>, <b>negative space</b> and <b>condensed couture</b>, all keeping the spark and the apostrophe. Below them is our call on which references fit L’Après and which don’t. Round 2’s twenty logos follow, and Round 1 is in the archive. Every mark is an outlined vector with its own SVG download.</p>
+      <div class="dl"><a class="main" href="downloads/LApres-logo-kit.zip" download>Download everything (zip)</a><a href="#typefaces">Typefaces used</a><a href="type-explorer.html">Type explorer</a></div>
   </header>
 
   <section>
@@ -140,9 +154,21 @@ footer{padding:28px 0 60px;color:var(--muted)}
     <p class="legend mono">Gold = L’Après night · Outline = to confirm</p>
   </section>
 
+  <section id="typefaces">
+    <div class="sh">
+      <h2><small class="mono">03 · Typefaces and downloads</small>Every font in the logos</h2>
+      <div>
+        <p>All seventeen are free Google Fonts (SIL Open Font License; Yellowtail is Apache 2.0), which allow commercial use and logos. Round 1’s scripts are included so every option on the site can be rebuilt. Each card shows the exact setting used and the logos it appears in. Each logo card below also lists its own fonts and tracking, so Alexis can rebuild any mark in Illustrator or Figma.</p>
+        <p><b>Download everything</b> contains all 64 SVGs (Rounds 1, 2 and 3), the original font files with their licences, the spark on its own, a <b>specs.csv</b> (font, axes, text and tracking for every logo) and a step-by-step README in Spanish and English.</p>
+        <div class="dl"><a class="main" href="downloads/LApres-logo-kit.zip" download>Download everything (zip)</a><a href="logos/spark.svg" download>Spark (SVG)</a><a href="type-explorer.html">Explore more typefaces</a></div>
+      </div>
+    </div>
+    <div class="faces" id="faces"></div>
+  </section>
+
   <section>
     <div class="sh">
-      <h2><small class="mono">03 · The new references</small>What fits L’Après, and what doesn’t</h2>
+      <h2><small class="mono">04 · The new references</small>What fits L’Après, and what doesn’t</h2>
       <p>L’Après is an alpine listening lodge: records, cocktails, a door sign that lights up. A reference fits if it helps the logo say <b>sound</b>, <b>mountain</b> or <b>Parisian night</b> in type that can be cut into a sign. The board is great for flyers too; that plan is further down.</p>
     </div>
     <div class="verdict">
@@ -169,7 +195,7 @@ footer{padding:28px 0 60px;color:var(--muted)}
 
   <section>
     <div class="sh">
-      <h2><small class="mono">07 · Next</small>Flyers and mockups from the board</h2>
+      <h2><small class="mono">08 · Next</small>Flyers and mockups from the board</h2>
       <p>Once the logo is chosen, the board’s photo ideas go onto the Sessions flyers and the mockups.</p>
     </div>
     <div class="verdict">
@@ -219,6 +245,7 @@ footer{padding:28px 0 60px;color:var(--muted)}
 
 <script src="r2-data.js"></script>
 <script src="r3-data.js"></script>
+<script src="r1-data.js"></script>
 <script>
 const CAL=[
  ['Thu','Dec 10','SF Symphony, tree lighting, Mayor',0],['Fri','Dec 11','Movie night: Eight Crazy Nights · 8th night of Hanukkah',1],['Sat','Dec 12','RASA Winter Wonderland Showcase (ticketed)',1],['Sun','Dec 13','The Grinch, Santa, Dog Days of December',0],
@@ -236,9 +263,9 @@ const KEY='lapres-r2-picks';let picks={};try{picks=JSON.parse(localStorage.getIt
 const svg=m=>`<svg viewBox="${m.vb}" role="img" aria-label="L’Après ${m.id} ${m.name}"><path d="${m.d}" fill="currentColor"/>${m.a?`<path class="acc" d="${m.a}"/>`:''}</svg>`;
 const size=m=>{const r=m.ratio;return r>2.6?'--sw:80%;--sh:60%':r>1.6?'--sw:74%;--sh:64%':'--sw:70%;--sh:74%'};
 const GROUPS3=[
- ['sound','04 · Sound marks','Hi-fi meets the mountain','From the PulseClub reference: a sound symbol that is also a mountain. Equaliser bars drawn as two peaks, and a waveform that becomes a summit in one neon-ready line.'],
- ['negative','05 · Negative space','Cut into the letters','From Camel and the Jimmy J monogram: the idea lives inside the type. A snowline through the caps, the A as a summit, the spark filling the L’s corner, and a lodge room key.'],
- ['condensed','06 · Condensed couture','Tall, narrow, French','From A Main Levée and the After Hours poster: the narrowest cut of a high-contrast display serif. Heavy, light, a justified Sessions block, and an arched lodge door.'],
+ ['sound','05 · Sound marks','Hi-fi meets the mountain','From the PulseClub reference: a sound symbol that is also a mountain. Equaliser bars drawn as two peaks, and a waveform that becomes a summit in one neon-ready line.'],
+ ['negative','06 · Negative space','Cut into the letters','From Camel and the Jimmy J monogram: the idea lives inside the type. A snowline through the caps, the A as a summit, the spark filling the L’s corner, and a lodge room key.'],
+ ['condensed','07 · Condensed couture','Tall, narrow, French','From A Main Levée and the After Hours poster: the narrowest cut of a high-contrast display serif. Heavy, light, a justified Sessions block, and an arched lodge door.'],
 ];
 const card=m=>`
     <article class="card" data-id="${m.id}" data-name="${m.name}">
@@ -246,7 +273,8 @@ const card=m=>`
       <div class="panel b" style="${size(m)}">${svg(m)}</div>
       <div class="meta"><span class="id">${m.id}</span><span class="nm">${m.name}</span>
         <span class="btns"><button class="k">Keep</button><button class="d">Drop</button><a href="${m.file}" download title="Download SVG">SVG</a></span>
-        <span class="note">${m.note}</span></div>
+        <span class="note">${m.note}</span>
+        <span class="type">${(m.spec||[]).map(s=>`${s.family} · ${s.settings} · ${s.text} · tracking ${s.tracking}`).join('<br>')}</span></div>
     </article>`;
 const groupsHTML=(data,groups,tools)=>groups.map(([g,small,title,intro],gi)=>`
 <section>
@@ -257,6 +285,29 @@ const groupsHTML=(data,groups,tools)=>groups.map(([g,small,title,intro],gi)=>`
 document.getElementById('groups3').innerHTML=groupsHTML(R3,GROUPS3,`<div class="tools"><button id="goldBtn">Preview spark in gold</button><a href="logos/lapres-logos-r3.zip" download>Download all 12 SVGs (zip)</a></div>`);
 document.getElementById('groups').innerHTML=groupsHTML(R2,GROUPS,`<div class="tools"><a href="logos/lapres-logos-r2.zip" download>Download all 20 SVGs (zip)</a></div>`);
 
+
+const FACES={
+ 'Bodoni Moda':{css:"font-family:'Bodoni Moda';font-weight:500;font-variation-settings:'opsz' 28",file:'BodoniModa-Variable.ttf',lic:'bodonimoda',gf:'Bodoni+Moda',role:'The main wordmark. A variable font: set the optical size (opsz) and weight.'},
+ 'Noto Serif Display':{css:"font-family:'Noto Serif Display';font-weight:600;font-stretch:62.5%",file:'NotoSerifDisplay-Variable.ttf',lic:'notoserifdisplay',gf:'Noto+Serif+Display',role:'Condensed couture (Round 3). Variable: width (wdth) 62.5 is the narrowest.'},
+ 'Italiana':{css:"font-family:'Italiana'",file:'Italiana-Regular.ttf',lic:'italiana',gf:'Italiana',role:'Thin poster capitals.'},
+ 'Cinzel':{css:"font-family:'Cinzel';font-weight:500",file:'Cinzel-Variable.ttf',lic:'cinzel',gf:'Cinzel',role:'Carved Roman capitals, Alpine hotel.'},
+ 'Abril Fatface':{css:"font-family:'Abril Fatface'",file:'AbrilFatface-Regular.ttf',lic:'abrilfatface',gf:'Abril+Fatface',role:'Heavy Didone for filled, backlit letters.'},
+ 'Libre Caslon Display':{css:"font-family:'Libre Caslon Display'",file:'LibreCaslonDisplay-Regular.ttf',lic:'librecaslondisplay',gf:'Libre+Caslon+Display',role:'Softer, Parisian display serif.'},
+ 'Gloock':{css:"font-family:'Gloock'",file:'Gloock-Regular.ttf',lic:'gloock',gf:'Gloock',role:'Heavy contrast lowercase.'},
+ 'Prata':{css:"font-family:'Prata'",file:'Prata-Regular.ttf',lic:'prata',gf:'Prata',role:'Quiet Didone, tracked wide.'},
+ 'DM Mono':{css:"font-family:'DM Mono';font-weight:500",file:'DMMono-Medium.ttf',lic:'dmmono',gf:'DM+Mono',role:'Small lines: HI-FI LISTENING LODGE, SESSIONS, Nº. Medium in Rounds 2–3, Regular in Round 1.',file2:'DMMono-Regular.ttf'},
+ 'Bodoni Moda Italic':{css:"font-family:'Bodoni Moda';font-style:italic;font-variation-settings:'opsz' 28",file:'BodoniModa-Italic-Variable.ttf',lic:'bodonimoda',gf:'Bodoni+Moda',role:'Italic L’ and L’Après in Round 1 badges and labels.'},
+ 'Sacramento':{css:"font-family:'Sacramento'",file:'Sacramento-Regular.ttf',lic:'sacramento',gf:'Sacramento',role:'Round 1 script (scripts were dropped in Round 2).',txt:'L’Après'},
+ 'Yellowtail':{css:"font-family:'Yellowtail'",file:'Yellowtail-Regular.ttf',lic:'yellowtail',gf:'Yellowtail',role:'Round 1 script. Apache 2.0 licence.',txt:'L’Après',apache:1},
+ 'Mr Dafoe':{css:"font-family:'Mr Dafoe'",file:'MrDafoe-Regular.ttf',lic:'mrdafoe',gf:'Mr+Dafoe',role:'Round 1 script.',txt:'L’Après'},
+ 'Damion':{css:"font-family:'Damion'",file:'Damion-Regular.ttf',lic:'damion',gf:'Damion',role:'Round 1 script.',txt:'L’Après'},
+ 'Allura':{css:"font-family:'Allura'",file:'Allura-Regular.ttf',lic:'allura',gf:'Allura',role:'Round 1 script.',txt:'L’Après'},
+ 'Pinyon Script':{css:"font-family:'Pinyon Script'",file:'PinyonScript-Regular.ttf',lic:'pinyonscript',gf:'Pinyon+Script',role:'Round 1 script, also the L’ and Sessions in A5 and A7.',txt:'L’Après'},
+ 'Great Vibes':{css:"font-family:'Great Vibes'",file:'GreatVibes-Regular.ttf',lic:'greatvibes',gf:'Great+Vibes',role:'Round 1 script.',txt:'L’Après'},
+ 'Monsieur La Doulaise':{css:"font-family:'Monsieur La Doulaise'",file:'MonsieurLaDoulaise-Regular.ttf',lic:'monsieurladoulaise',gf:'Monsieur+La+Doulaise',role:'Round 1 script.',txt:'L’Après'},
+};
+(()=>{const use={};[[R1,'R1·'],[R2,''],[R3,'']].forEach(([D,pre])=>(D||[]).forEach(m=>(m.spec||[]).forEach(s=>{const u=use[s.family]||(use[s.family]={ids:new Set(),sets:new Set()});u.ids.add(pre+m.id);u.sets.add(s.settings)})));
+document.getElementById('faces').innerHTML=Object.entries(FACES).map(([fam,f])=>{const u=use[fam]||{ids:new Set(),sets:new Set()};const txt=f.txt||(fam==='DM Mono'?'HI-FI LISTENING LODGE':'L’APRÈS');return `<div class="face"><div class="spec" style="${f.css}${fam==='DM Mono'?';font-size:22px;letter-spacing:.3em':''}">${txt}</div><div class="fam">${fam}</div><div class="set">${f.role}<br>Used at: ${[...u.sets].join(' / ')}</div><div class="use">Logos: ${[...u.ids].join(' ')}</div><div class="btns"><a href="fonts/${f.file}" download>Font file</a>${f.file2?`<a href="fonts/${f.file2}" download>Regular</a>`:''}<a href="fonts/licenses/${f.lic}-${f.apache?'Apache':'OFL'}.txt">Licence</a><a href="https://fonts.google.com/specimen/${f.gf}" target="_blank" rel="noopener">Google Fonts</a></div></div>`}).join('')})();
 function paint(){document.querySelectorAll('.card').forEach(c=>{c.classList.toggle('keep',picks[c.dataset.id]==='k');c.classList.toggle('drop',picks[c.dataset.id]==='d')});const k=Object.keys(picks).filter(i=>picks[i]==='k');document.getElementById('pickTxt').textContent=k.length?`Keeping ${k.length}: ${k.join(', ')}`:'No picks yet'}
 function save(){try{localStorage.setItem(KEY,JSON.stringify(picks))}catch(_){}paint()}
 document.addEventListener('click',ev=>{const b=ev.target.closest('.btns button');if(!b)return;const id=b.closest('.card').dataset.id,v=b.classList.contains('k')?'k':'d';if(picks[id]===v)delete picks[id];else picks[id]=v;save()});

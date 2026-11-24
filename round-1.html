@@ -61,7 +61,10 @@ section{padding:clamp(36px,5vw,72px) 0;border-top:1px solid var(--line)}
 .panel{container-type:inline-size;aspect-ratio:16/10;display:grid;place-items:center;overflow:hidden;position:relative}
 .panel.w{--bg:var(--paper);--fg:var(--ink);background:var(--bg);color:var(--fg)}
 .panel.b{--bg:var(--night);--fg:var(--paper);background:var(--bg);color:var(--fg)}
-.meta{display:flex;align-items:center;gap:10px;padding:10px 12px}
+.meta{display:flex;align-items:center;gap:10px;padding:10px 12px;flex-wrap:wrap}
+.meta .type{flex-basis:100%;font:500 10.5px/1.5 'DM Mono',monospace;color:#B9AE9F}
+.btns a{font:500 10px 'DM Mono',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--text);border:1px solid #3a3230;padding:5px 8px;text-decoration:none}
+.dl1{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}.dl1 a{font:500 11px 'DM Mono',monospace;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;color:var(--text);border:1px solid #3a3230;border-radius:999px;padding:10px 14px}.dl1 a.main{background:#E9D9B8;color:#121010;border-color:#E9D9B8}
 .meta .id{font:500 11px 'DM Mono',monospace;color:var(--muted)}
 .meta .nm{flex:1;min-width:0;font-size:.9em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .tag{font:500 9.5px 'DM Mono',monospace;letter-spacing:.06em;text-transform:uppercase;padding:3px 6px;border:1px solid #3a3230;color:#BDB4A8;white-space:nowrap}
@@ -91,12 +94,13 @@ svg.full{width:88%;height:88%;overflow:visible}
 </head>
 <body>
 
-<div class="strip mono"><span>RemotoLabs®</span><span>L'Après · Hi-Fi Listening Lodge · Wordmark Round 1 · Black &amp; white only</span><span>Private · 24.11.26</span></div>
+<div class="strip mono"><span>RemotoLabs®</span><span>L'Après · Hi-Fi Listening Lodge · Wordmark Round 1 · Black &amp; white only</span><span>24.11.26</span></div>
 
 <div class="wrap">
   <header class="hero">
     <h1>Round 1,<br><em>kept for the record.</em></h1>
-    <p><a href="index.html" style="color:#E9D9B8">← Back to Round 2</a><br><br>Round 1 of the wordmark for RASA’s late-night listening lodge inside Nights of Wonder. There are 32 options across four routes, all in black and white, so we choose the drawing before any gold, neon or texture goes on. Mark <b>Keep</b> or <b>Drop</b> on each one, then copy your picks at the bottom.</p>
+    <p><a href="index.html" style="color:#E9D9B8">← Back to Round 2</a><br><br>Round 1 of the wordmark for RASA’s late-night listening lodge inside Nights of Wonder. There are 32 options across four routes, all in black and white, so we choose the drawing before any gold, neon or texture goes on. Mark <b>Keep</b> or <b>Drop</b> on each one, then copy your picks at the bottom. Every option is now also an outlined SVG with its fonts listed underneath.</p>
+    <div class="dl1"><a class="main" href="downloads/LApres-logo-kit.zip" download>Download everything (zip)</a><a href="logos/lapres-logos-r1.zip" download>Round 1 SVGs (zip)</a><a href="index.html#typefaces">All typefaces</a></div>
   </header>
 
 
@@ -107,6 +111,7 @@ svg.full{width:88%;height:88%;overflow:visible}
   <div style="height:40px"></div>
 </div>
 
+<script src="r1-data.js"></script>
 <script>
 const REFS=[
  ['img08','Santa on the decks'],['img03','Gifts on a red car, snow'],['img07','Red chess, gold glass'],['img02','Après Ski 2025 poster'],
@@ -199,6 +204,7 @@ function renderPicks(){paint();const k=Object.keys(picks).filter(i=>picks[i]==='
 document.addEventListener('click',ev=>{const b=ev.target.closest('.btns button');if(!b)return;const id=b.closest('.card').dataset.id;const v=b.classList.contains('k')?'k':'d';picks[id]=picks[id]===v?undefined:v;if(!picks[id])delete picks[id];save()});
 document.getElementById('copy').onclick=()=>{const name=i=>document.querySelector(`.card[data-id="${i}"]`).dataset.name;const k=Object.keys(picks).filter(i=>picks[i]==='k'),d=Object.keys(picks).filter(i=>picks[i]==='d');const t=`L'Après Round 1 picks\nKeep: ${k.map(i=>i+' '+name(i)).join(', ')||'none'}\nDrop: ${d.join(', ')||'none'}`;navigator.clipboard?.writeText(t).then(()=>{document.getElementById('copy').textContent='Copied'},()=>prompt('Copy:',t))};
 renderPicks();
+(()=>{const by=Object.fromEntries((window.R1||[]).map(m=>[m.id,m]));document.querySelectorAll('.card').forEach(c=>{const m=by[c.dataset.id];if(!m)return;const b=c.querySelector('.btns');b.insertAdjacentHTML('beforeend',`<a href="${m.file}" download title="Download SVG">SVG</a>`);c.querySelector('.meta').insertAdjacentHTML('beforeend',`<span class="type">${m.spec.map(s=>`${s.family} · ${s.settings} · ${s.text} · tracking ${s.tracking}`).join('<br>')}</span>`)})})();
 </script>
 </body>
 </html>
